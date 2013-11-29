@@ -7,26 +7,39 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+       <link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+		
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<style>
+			
+			.datepicker{
+				font-size:10px;
+			}
+		</style>
+		
+      <!--  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/vendor/angular.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+		<!--<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>-->
+		<script src="js/cal.js"></script>
+		<script src="js/jquery-1.9.1.js"></script>
+		<script src="js/jquery-ui-1.10.3.custom.js"></script>
+
     </head>
     <body>
         <nav class="navbar navbar-default navbar-background" role="navigation">
-            <div class="full-width-container">
+            <div class="container">
                 <div class="row">
-                    <div class="col-md-2">
-                        <div>
-                            <a href="#"><img src="img/schedlr-logo.png"></a>
-                        </div>
+                    <div class="col-md-3">
+						<div class="row">
+								<a href="#"><img height="60px" src="img/schedlr-logo.png"></a>
+						</div>
                     </div>
                     <div class="col-md-4">
                         <div class="row">
@@ -45,8 +58,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-1">
-                    </div>
                     <div class="col-md-3">
                         <div class="row">
                             <div class="col-md-14">
@@ -61,10 +72,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-1">
-
-                    </div>
-                    <div class="col-md-1">
+                   
+                    <div class="col-md-2">
                         <div class="row">
                             <div>
                                 <a href="#" class="btn btn-primary input-group-btn"><i class="glyphicon glyphicon-user"></i> Sina</a>
@@ -72,7 +81,9 @@
                         </div>
                         <div class="row">
                             <div>
-                                <a href="#" class="btn btn-danger input-group-btn"><i class="glyphicon glyphicon-log-out"></i> Logi välja</a>
+                                <a href="#" onclick='handleAuthClick();' id='authorize-button' class="btn btn-danger input-group-btn">
+									<i class="glyphicon glyphicon-log-out"  ></i> Logi sisse
+									</a>
                             </div>
                         </div>
                     </div>
@@ -80,12 +91,163 @@
             </div>
         </nav>
         <div class="full-width-container">
-            <div class="col-md-10">
-
+			<div class="col-md-8">
+				<div class="row">
+					<form class="form-inline" role="form">
+						<div class="form-group col-md-2">
+							<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span>Järgmine</button>
+						</div>
+						<div class="form-group col-md-8 col-sm-4">
+							<input type="text" class="form-control" id="date-today">
+						</div> 
+						<div class="form-group col-md-2">
+							<button type="submit" class="btn btn-default">Järgmine<span class="glyphicon glyphicon-arrow-right"></span></button>
+						</div>
+					</form>
+				</div>
+				<div class="row">
+			 <div id="calendarList"></div>
+			 <ul id='events'></ul>	
+				<table class="table table-hover table-bordered table-striped calendar-click-listener">
+					<tr>
+						<th>Kell</th>
+						<th>Esmaspäev</th>
+						<th>Teisipäev</th>
+						<th>Kolmapäev</th>
+						<th>Neljapäev</th>
+						<th>Reede</th>						
+					</tr>
+					<tr>
+						<td >8</td>
+						<td  id="1h8">Sisu</td>
+						<td  id="2h8"></td>
+						<td  id="3h8"></td>
+						<td  id="4h8"></td>
+						<td  id="5h8"></td>
+					</tr>
+					<tr>
+						<td>9</td>
+						<td id="1h9"></td>
+						<td id="2h9"></td>
+						<td id="3h9"></td>
+						<td id="4h9"></td>
+						<td id="5h9"></td>
+					</tr>
+					<tr>
+						<td >10</td>
+						<td id="1h10"></td>
+						<td id="2h10"></td>
+						<td id="3h10">Sisukas sisu</td>
+						<td id="4h10"></td>
+						<td id="5h10"></td>
+					</tr>
+					<tr>
+						<td >11</td>
+						<td id="1h11"></td>
+						<td id="2h11"></td>
+						<td id="3h11"></td>
+						<td id="4h11"></td>
+						<td id="5h11"></td>
+					</tr>
+					<tr>
+						<td>12</td>
+						<td id="1h12"></td>
+						<td id="2h12"></td>
+						<td id="3h12"></td>
+						<td id="4h12"></td>
+						<td id="5h12"></td>
+					</tr>
+					<tr>
+						<td>13</td>
+						<td id="1h13"></td>
+						<td id="2h13"></td>
+						<td id="3h13"></td>
+						<td id="4h13"></td>
+						<td id="5h13"></td>
+					</tr>
+					<tr>
+						<td>14</td>
+						<td id="1h14"></td>
+						<td id="2h14"></td>
+						<td id="3h14"></td>
+						<td id="4h14"></td>
+						<td id="5h14"></td>
+					</tr>
+					<tr>
+						<td>15</td>
+						<td id="1h15"></td>
+						<td id="2h15"></td>
+						<td id="3h15"></td>
+						<td id="4h15"></td>
+						<td id="5h15"></td>
+					</tr>
+					<tr>
+						<td>16</td>
+						<td id="1h16"></td>
+						<td id="2h16"></td>
+						<td id="3h16"></td>
+						<td id="4h16"></td>
+						<td id="5h16"></td>
+					</tr>
+					<tr>
+						<td>17</td>
+						<td id="1h17"></td>
+						<td id="2h17"></td>
+						<td id="3h17"></td>
+						<td id="4h17"></td>
+						<td id="5h17"></td>
+					</tr>
+					<tr>
+						<td>18</td>
+						<td id="1h18"></td>
+						<td id="2h18"></td>
+						<td id="3h18"></td>
+						<td id="4h18"></td>
+						<td id="5h18"></td>
+					</tr>
+					<tr>
+						<td>19</td>
+						<td id="1h19"></td>
+						<td id="2h19"></td>
+						<td id="3h19"></td>
+						<td id="4h19"></td>
+						<td id="5h19"></td>
+					</tr>
+				</table>
             </div>
-            <div class="col-md-2">
+			</div>
+			
+            <div class="col-md-4">
+				<h2 class="demoHeaders">Kalender</h2>
 
+				<div id="datepicker"></div>
             </div>
         </div>
+						<div id="datepicker"></div>
+
+		<div class="message-box hidden panel panel-primary" data-time="">
+
+			<div class="panel-heading">Koduse ülesande lisamine 
+			<button type="button" class="message-box-close panel" style="float:right;" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12 message-box-content">
+						<div class="input-group">
+						  <span class="input-group-addon">@</span>
+						  <input type="text" class="form-control message-box-datetime" data-time="" id="date-today-message-box"/>
+						  <input type="text" class="form-control message-box-subject" placeholder="Õppeaine nimi"/>
+						  <input type="text" class="form-control message-box-event" value=""  placeholder="Ülesanne"/>
+						</div> 
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<a href="#" class="message-box-submit btn btn-warning">Salvesta</a>
+					</div>
+				</div>
+			</div>
+		</div>
     </body>
 </html>
