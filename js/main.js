@@ -7,11 +7,13 @@ $(document).ready( function(){
 		
 		
 	$(".calendar-click-listener").find("td").on("click", function(e) {
-		$(".message-box").attr("data-time",($(this).attr("id")));
-		$(".message-box").removeClass('hidden');
-		$(".message-box").css("left", e.pageX);
-		$(".message-box").css("top", e.pageY);
-		result=($(".message-box").attr("data-time"));
+        var $messageBox = $(".message-box");
+        $messageBox.attr("data-time",($(this).attr("id")));
+        $messageBox.removeClass('hidden');
+        $messageBox.css("left", e.pageX);
+        $messageBox.css("top", e.pageY);
+
+		var result = $messageBox.attr("data-time");
 		var res = result.split("h");
 		var day=parseInt(res[0]);		
 		switch(day)
@@ -27,14 +29,18 @@ $(document).ready( function(){
 	});
 	
 	$(".message-box-submit").on("click", function() {
-		$("#" + $(".message-box").attr("data-time")).html($(".message-box-event").val());
+        var $messageBox = $(".message-box");
+        var $messageBoxEvent = $(".message-box-event");
+
 		$(".message-box-event").val("");
-		$(".message-box").addClass("hidden");
+        $messageBox.addClass("hidden");
 	});
 	$(".message-box-close").on("click", function() {
-		$("#" + $(".message-box").attr("data-time")).html($(".message-box-event").val());
-		$(".message-box-event").val(".data-time");
-		$(".message-box").addClass("hidden");
+        var $messageBox = $(".message-box");
+        var $messageBoxEvent = $(".message-box-event");
+
+        $messageBoxEvent.val(".data-time");
+        $messageBox.addClass("hidden");
 	});
   
 
