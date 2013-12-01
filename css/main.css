@@ -122,6 +122,22 @@ textarea {
     border-color: #6A6FB2;
 }
 
+.filter-popup {
+    position: absolute;
+    left: 50%;
+    top : 50%;
+    z-index: 999;
+    width: 300px;
+}
+
+.lecture-popup {
+    position: absolute;
+    left: 50%;
+    top : 50%;
+    z-index: 999;
+    width: 500px;
+}
+
 .message-box {
 	position: absolute;
 	left: 50%;

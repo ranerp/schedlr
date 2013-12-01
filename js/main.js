@@ -4,8 +4,7 @@ $(document).ready( function(){
 			inline: true
 			});
 		});
-		
-		
+
 	$(".calendar-click-listener").find("td").on("click", function(e) {
         var $messageBox = $(".message-box");
         $messageBox.attr("data-time",($(this).attr("id")));

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/bootstrap-formhelpers.min.css">
     <style>
 
         .datepicker{
@@ -25,11 +26,12 @@
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/vendor/angular.min.js"></script>
     <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main_raner.js"></script>
     <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
     <script src="js/cal.js"></script>
     <script src="js/jquery-1.9.1.js"></script>
     <script src="js/jquery-ui-1.10.3.custom.js"></script>
+    <script src="js/vendor/bootstrap-formhelpers-selectbox.js"></script>
 
 </head>
 <body>
@@ -38,7 +40,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="row">
-                    <a href="#"><img height="60px" src="img/schedlr-logo.png"></a>
+                    <a href="#"><img height="60px" src="img/schedlr-logo2.png"></a>
                 </div>
             </div>
             <div class="col-md-4">
@@ -229,26 +231,144 @@
 </div>
 <div id="datepicker"></div>
 
-<div class="message-box hidden panel panel-primary" data-time="">
+<div class="filter-popup hidden panel panel-primary" data-time="">
 
-    <div class="panel-heading">Koduse ülesande lisamine
-        <button type="button" class="message-box-close panel" style="float:right;" data-dismiss="modal" aria-hidden="true">&times;</button>
-
+    <div class="panel-heading drag-listener">
+        <h3 class="panel-title">Filtreeri <button type="button" class="filter-popup-close panel" style="float:right;" data-dismiss="modal" aria-hidden="true">&times;</button></h3>
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-12 message-box-content">
+            <div class="col-md-12">
                 <div class="input-group">
-                    <span class="input-group-addon">@</span>
-                    <input type="text" class="form-control message-box-datetime" data-time="" id="date-today-message-box"/>
-                    <input type="text" class="form-control message-box-subject" placeholder="Õppeaine nimi"/>
-                    <input type="text" class="form-control message-box-event" value=""  placeholder="Ülesanne"/>
+                    <span class="input-group-addon ">Osakond</span>
+                    <div class="bfh-selectbox">
+                        <div data-value="0">Kõik</div>
+                        <div data-value="1">Informaatika instituut</div>
+                        <div data-value="2">Psühholoogia instituut</div>
+                        <div data-value="2">Ajaloo instituut</div>
+                        <div data-value="2">Matemaatika instituut</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="input-group">
+                    <span class="input-group-addon">Huviala</span>
+                    <div class="bfh-selectbox">
+                        <div data-value="0">Kõik</div>
+                        <div data-value="1">Sport</div>
+                        <div data-value="2">Arvutid</div>
+                        <div data-value="2">Naised</div>
+                        <div data-value="2">Ajalugu</div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <a href="#" class="message-box-submit btn btn-warning">Salvesta</a>
+                <a href="#" class="filter-popup-submit btn btn-warning">Edasi</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="lecture-popup hidden panel panel-primary" data-time="">
+
+    <div class="panel-heading drag-listener">
+        <h3 class="panel-title">Loengud <button type="button" class="lecture-popup-close panel" style="float:right;" data-dismiss="modal" aria-hidden="true">&times;</button></h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading drag-listener">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                Rakenduste programmeerimine
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5><strong>Toimumisaeg: </strong>Teisipäev 08.15 - 12.45</h5>
+                                        <p></p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h5><strong>Kirjeldus: </strong></h5>
+                                        <p>Vestibulum facilisis facilisis sodales. Mauris ac bibendum tellus. Pellentesque aliquet molestie metus, a pharetra sem. Proin sed massa ligula. In ut purus at ipsum fringilla dapibus eget at erat. Maecenas mollis egestas blandit. Cras eget lorem at lorem sollicitudin porta et in erat. Nulla eu suscipit ante, eu convallis eros. Sed blandit sit amet massa a venenatis. Curabitur condimentum quam sit amet enim mollis imperdiet.</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h5><strong>Õppejõud: </strong>Jaagup Kippar</h5>
+                                        <p></p>
+                                </div>
+                                <div class="col-md-12">
+                                    <a href="#" class="filter-popup-submit btn btn-success">Lisa</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                .NET raamistik
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5><strong>Toimumisaeg: </strong>Kolmapäev 10.15 - 13.45</h5>
+                                    <p></p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h5><strong>Kirjeldus: </strong></h5>
+                                    <p>Vestibulum facilisis facilisis sodales. Mauris ac bibendum tellus. Pellentesque aliquet molestie metus, a pharetra sem. Proin sed massa ligula. In ut purus at ipsum fringilla dapibus eget at erat. Maecenas mollis egestas blandit. Cras eget lorem at lorem sollicitudin porta et in erat. Nulla eu suscipit ante, eu convallis eros. Sed blandit sit amet massa a venenatis. Curabitur condimentum quam sit amet enim mollis imperdiet.</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h5><strong>Õppejõud: </strong>Jaagup Kippar</h5>
+                                    <p></p>
+                                </div>
+                                <div class="col-md-12">
+                                    <a href="#" class="filter-popup-submit btn btn-success">Lisa</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                Ülevaade psühholoogiast
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5><strong>Toimumisaeg: </strong>Reede 12.15 - 14.45</h5>
+                                        <p></p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h5><strong>Kirjeldus: </strong></h5>
+                                        <p>Vestibulum facilisis facilisis sodales. Mauris ac bibendum tellus. Pellentesque aliquet molestie metus, a pharetra sem. Proin sed massa ligula. In ut purus at ipsum fringilla dapibus eget at erat. Maecenas mollis egestas blandit. Cras eget lorem at lorem sollicitudin porta et in erat. Nulla eu suscipit ante, eu convallis eros. Sed blandit sit amet massa a venenatis. Curabitur condimentum quam sit amet enim mollis imperdiet.</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h5><strong>Õppejõud: </strong>Katrin Kullasepp</h5>
+                                        <p></p>
+                                </div>
+                                <div class="col-md-12">
+                                    <a href="#" class="filter-popup-submit btn btn-success">Lisa</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
