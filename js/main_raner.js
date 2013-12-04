@@ -66,10 +66,10 @@ $(document).ready( function(){
         var $window = $(window);
         var $div = $(div);
 
-        if((y + $div.width()) > $window.height())
+        if((y + $div.height()) > $window.height())
             $div.css("top", y - $div.height());
         else
-            $div.css("top", y);
+            $div.css("top", y - $div.height() / 2);
     }
 
     var resolveLeftLocation = function(div, x) {
@@ -79,7 +79,7 @@ $(document).ready( function(){
         if((x + $div.width()) > $window.width())
             $div.css("left", x - $div.width());
         else
-            $div.css("left", x);
+            $div.css("left", x - $div.width() / 2);
     }
 
     var removeSelectedRow = function() {
@@ -154,14 +154,14 @@ $(document).ready( function(){
 
     $(".filter-popup-submit").on("click", function(e) {
         var $filterPopUp = $(".filter-popup");
-        $filterPopUp.addClass("hidden");
 
         var $lecturePopup = $(".lecture-popup");
 
         $lecturePopup.removeClass('hidden');
+        resolveLeftLocation($lecturePopup, $filterPopUp.position().left + $filterPopUp.width());
+        resolveTopLocation($lecturePopup, $filterPopUp.position().top + $filterPopUp.height());
 
-        resolveLeftLocation($lecturePopup, $filterPopUp.css("left"));
-        resolveTopLocation($lecturePopup, $filterPopUp.css("top"));
+        $filterPopUp.addClass("hidden");
     });
 
     $(".filter-popup-close").on("click", function() {
@@ -280,17 +280,18 @@ $(document).ready( function(){
         $courseOptions.addClass("hidden");
     });
 
-    $(".course-options-advise-submit").on("click", function() {
+    $(".course-options-advise-submit").on("click", function(e) {
         var $courseOptionsPopup = $(".course-options-popup");
-        $courseOptionsPopup.addClass("hidden");
 
         var $friendsAdvisePopUp = $(".friends-advise-popup");
         $('.friends-advise-popup').find(".btn-chk").removeClass("active");
 
         $friendsAdvisePopUp.removeClass("hidden");
 
-        resolveLeftLocation($friendsAdvisePopUp, $courseOptionsPopup.css("left"));
-        resolveTopLocation($friendsAdvisePopUp, $courseOptionsPopup.css("top"));
+        resolveLeftLocation($friendsAdvisePopUp, $courseOptionsPopup.position().left + $courseOptionsPopup.width());
+        resolveTopLocation($friendsAdvisePopUp, $courseOptionsPopup.position().top + $courseOptionsPopup.height());
+
+        $courseOptionsPopup.addClass("hidden");
     });
 
     $(".course-options-remove-submit").on("click", function() {
