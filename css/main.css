@@ -169,11 +169,26 @@ textarea {
 }
 
 .event-color-one {
-    background-color: #fdd155 !important;
+    background-color: #fdc642 !important;
 }
 
 .event-color-two {
-    background-color: #fbd26e !important;;
+    background-color: #fbe989 !important;;
+}
+
+.no-bottom-padding {
+    padding-bottom: 0px !important;
+}
+
+
+.no-top-padding {
+    padding-top: 0px !important;
+}
+
+.table-custom>tfoot>tr>th, .table-custom>thead>tr>td,
+.table-custom>tbody>tr>td, .table-custom>tfoot>tr>td {
+    border-top: 0px solid black !important;
+    border-bottom: 0px solid black !important;
 }
 
 .unselectable {
@@ -184,6 +199,13 @@ textarea {
     /* Rules below not implemented in browsers yet */
     -o-user-select: none;
     user-select: none;
+}
+
+.friends-advise-popup {
+    position: absolute;
+    left: 50%;
+    top : 50%;
+    z-index: 999;
 }
 
 

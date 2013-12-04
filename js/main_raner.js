@@ -10,7 +10,37 @@ $(document).ready( function(){
         "endDate": null
     };
 
+    var calendarEvents = {
+        "eventsCount" : "3",
+        "events":
+            [
+                {"id": "1", "subject": "Intelligentsed süsteemid", "startDate": "1h8", "endDate": "1h12"},
+                {"id": "2", "subject": "Bakalaurusetöö seminar", "startDate": "1h14", "endDate": "1h16"},
+                {"id": "3", "subject": "Krüptoloogia", "startDate": "5h8", "endDate": "5h12"}
+            ]
+    };
+
+    var populateCalendar = function(events) {
+        for(var i = 0; i < events.eventsCount; i++) {
+            var event = events.events[i];
+           pushEventToCalendar(event.startDate, event.endDate, event.subject, event.id);
+        }
+    };
+
     var eventColors = ["event-color-one", "event-color-two"];
+
+    var colorAt = 0;
+
+    var getEventColorClass = function() {
+        return eventColors[colorAt];
+    }
+
+    var rotateColorAt = function() {
+        if(colorAt == 0)
+            colorAt = 1;
+        else
+            colorAt = 0;
+    }
 
     var startMoveListening = function(div, e) {
 
@@ -61,29 +91,23 @@ $(document).ready( function(){
 
         $courseOptions.removeClass("hidden");
 
+        $courseOptions.attr("data-event-id", $(this).attr("data-event-id"));
+
         resolveLeftLocation($courseOptions, e.pageX);
         resolveTopLocation($courseOptions, e.pageY);
-
     }
 
-    $(".drag-listener").on("mousedown", function(e) {
-        startMoveListening($(this).parent(), e);
-
-        $(".drag-listener").on("mouseup", function(e) {
-            $(this).parent().removeClass("moving");
-            $(document).unbind("mousemove");
-        });
-    });
-
-
-    $(".calendar-click-listener").find(".empty").on("mousedown", function(e) {
+    var calendarMouseDownListener = function() {
         var $filterPopUp = $(".filter-popup");
         var $this = $(this);
 
-        calendarSelectedRowsArray.startDate = null;
-        calendarSelectedRowsArray.endDate = null;
-
         calendarSelectedRowsArray.startDate = $this;
+        calendarSelectedRowsArray.endDate = $this;
+
+        var id = calendarEvents.eventsCount + 1;
+        calendarEvents.eventsCount = id + 1;
+
+        calendarSelectedRowsArray.startDate.attr("data-event-id", id);
 
         $this.addClass("calendar-selected-row");
 
@@ -105,17 +129,27 @@ $(document).ready( function(){
             });
         });
 
+
         $(document).on("mouseup", function(e) {
             $(selector).unbind("mouseenter");
             $(document).unbind("mouseup");
 
             $filterPopUp.removeClass('hidden');
 
-            $(selector).attr("data-x-enter", "");
+            $(selector).removeAttr("data-x-enter");
             resolveLeftLocation($filterPopUp, e.pageX);
             resolveTopLocation($filterPopUp, e.pageY);
         });
 
+    };
+
+    $(".drag-listener").on("mousedown", function(e) {
+        startMoveListening($(this).parent(), e);
+
+        $(".drag-listener").on("mouseup", function(e) {
+            $(this).parent().removeClass("moving");
+            $(document).unbind("mousemove");
+        });
     });
 
     $(".filter-popup-submit").on("click", function(e) {
@@ -144,36 +178,95 @@ $(document).ready( function(){
         var course = $(this).attr("data-course");
 
         calendarSelectedRowsArray.startDate.addClass("full");
-        calendarSelectedRowsArray.startDate.html(course);
 
-        $.each($(".calendar-selected-row"), function() {
-            var id = $(this).attr("id");
-            var ids = id.split("h");
+        var startId = calendarSelectedRowsArray.startDate.attr("id");
+        var endId = calendarSelectedRowsArray.endDate.attr("id");
 
-            var startId = calendarSelectedRowsArray.startDate.attr("id");
-            var startIds = startId.split("h");
-
-            var endId = calendarSelectedRowsArray.endDate.attr("id");
-            var endIds = endId.split("h");
-
-            if(ids[1] == startIds[1])
-                $(this).addClass("border-top");
-
-            if(ids[1] >= startIds[1] && ids[1] <= endIds[1]) {
-                $(this).addClass("full");
-                $(this).removeClass("empty");
-                $(this).unbind("mousedown");
-                $(this).addClass("event-color-two");
-                $(this).on("click", courseOptionsListener);
-            }
-
-
-            if(ids[1] == endIds[1])
-                $(this).addClass("border-bottom");
-        });
+        pushEventToCalendar(startId, endId, course, calendarSelectedRowsArray.startDate.attr("data-event-id"));
 
         removeSelectedRow();
     });
+
+    var pushEventToCalendar = function(start, end, subject, eventId) {
+        var startDates = start.split("h");
+        startDates[0] = parseInt(startDates[0]);
+        startDates[1] = parseInt(startDates[1]);
+
+        var endDates = end.split("h");
+        endDates[0] = parseInt(endDates[0]);
+        endDates[1] = parseInt(endDates[1]);
+
+        $.each($(".main-calendar").find(".event-column"), function() {
+            var id = $(this).attr("id");
+            var tdDates = id.split("h");
+            tdDates[0] = parseInt(tdDates[0]);
+            tdDates[1] = parseInt(tdDates[1]);
+
+            if(tdDates[0] == startDates[0] && tdDates[1] == startDates[1]) {
+                $(this).addClass("border-top");
+                var $div = $("<div class='calendar-event'></div>");
+                $div.css("position", "absolute");
+                $div.css("height", $(this).height() + 8);
+                $div.css("padding", "5px");
+                $div.css("z-index", "10");
+                $div.css("border-top-left-radius", "7px");
+                $div.css("border-top-right-radius", "7px");
+
+                if(tdDates[1] == endDates[1]) {
+                    $div.css("border-bottom-left-radius", "7px");
+                    $div.css("border-bottom-right-radius", "7px");
+                }
+
+                $div.css("top", $(this).position().top + 8);
+                $div.append("<h5><strong>" + subject + "</strong></h5>");
+
+                addEventPart($div, this, eventId);
+            }
+            else if(startDates[0] == tdDates[0] && tdDates[1] > startDates[1] && tdDates[1] < endDates[1]) {
+                var $div = $("<div class='calendar-event'>&ensp;</div>");
+                $div.css("position", "absolute");
+                $div.css("height", $(this).height() + 16);
+                $div.css("top", $(this).position().top);
+
+                addEventPart($div, this, eventId);
+            }
+            else if(startDates[0] == tdDates[0] && tdDates[1] == endDates[1]) {
+                var $div = $("<div class='calendar-event'>&ensp;</div>");
+                $div.css("position", "absolute");
+                $div.css("border-bottom-left-radius", "10px");
+                $div.css("border-bottom-right-radius", "10px");
+                $div.css("height", $(this).height() + 8);
+                $div.css("top", $(this).position().top);
+
+                addEventPart($div, this, eventId);
+            }
+
+
+            if(endDates[0] == tdDates[0] && tdDates[1] == endDates[1])
+                $(this).addClass("border-bottom");
+        });
+
+        rotateColorAt();
+    }
+
+    var addEventPart = function(div, column, id) {
+
+        div.addClass(getEventColorClass());
+        div.css("width", $(column).width());
+
+        $(column).append(div);
+        $(column).removeClass("empty");
+        $(column).addClass("full");
+        $(column).unbind("mousedown");
+        $(column).attr("data-event-id", id);
+        $(column).on("click", courseOptionsListener);
+    }
+
+    var onWindowResizeEvent = function() {
+        $.each($(".main-calendar").find(".calendar-event"), function() {
+            $(this).css("width", $(this).parents("td").width());
+        });
+    }
 
     $(".lecture-popup-close").on("click", function() {
         var $lecturePopup = $(".lecture-popup");
@@ -187,5 +280,51 @@ $(document).ready( function(){
         $courseOptions.addClass("hidden");
     });
 
+    $(".course-options-advise-submit").on("click", function() {
+        var $courseOptionsPopup = $(".course-options-popup");
+        $courseOptionsPopup.addClass("hidden");
+
+        var $friendsAdvisePopUp = $(".friends-advise-popup");
+        $('.friends-advise-popup').find(".btn-chk").removeClass("active");
+
+        $friendsAdvisePopUp.removeClass("hidden");
+
+        resolveLeftLocation($friendsAdvisePopUp, $courseOptionsPopup.css("left"));
+        resolveTopLocation($friendsAdvisePopUp, $courseOptionsPopup.css("top"));
+    });
+
+    $(".course-options-remove-submit").on("click", function() {
+        var eventId = $(this).parents(".course-options-popup").attr("data-event-id");
+
+        var selector = "td[data-event-id=" + eventId  + "]";
+
+        $.each($(".main-calendar").find(selector), function() {
+            var $this = $(this);
+            $this.removeClass("full");
+            $this.removeAttr("data-event-id");
+            $this.removeClass("event-color-one");
+            $this.removeClass("event-color-two");
+            $this.addClass("empty");
+            $this.html("");
+            $this.unbind("mousedown");
+            $this.on("mousedown", calendarMouseDownListener);
+        });
+
+        $(".course-options-popup").addClass("hidden");
+    });
+
+    $(".friends-advise-popup-close").on("click", function() {
+        $(".friends-advise-popup").addClass("hidden");
+    });
+
+    $(".friends-advise-popup-submit").on("click", function() {
+        $(".friends-advise-popup").addClass("hidden");
+    });
+
     $(".full").on("click", courseOptionsListener);
+    $(".calendar-click-listener").find(".empty").on("mousedown", calendarMouseDownListener);
+
+    $(window).resize(onWindowResizeEvent);
+
+    populateCalendar(calendarEvents);
 });
