@@ -130,8 +130,17 @@ textarea {
     width: 300px;
 }
 
+.course-options-popup {
+    position: absolute;
+    left: 50%;
+    top : 50%;
+    z-index: 999;
+    width: 120px;
+}
+
 .lecture-popup {
     position: absolute;
+    height: auto;
     left: 50%;
     top : 50%;
     z-index: 999;
@@ -139,11 +148,42 @@ textarea {
 }
 
 .message-box {
+    height: auto;
 	position: absolute;
 	left: 50%;
 	top : 50%;
 	z-index: 999;
 	width: 300px;
+}
+
+.calendar-selected-row {
+    background-color: #fdf0a4 !important;
+}
+
+.event-border-top {
+    border-top: #000000 solid 1px !important;
+}
+
+.event-border-bottom {
+    border-bottom: #000000 solid 1px !important;
+}
+
+.event-color-one {
+    background-color: #fdd155 !important;
+}
+
+.event-color-two {
+    background-color: #fbd26e !important;;
+}
+
+.unselectable {
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
+    user-select: none;
 }
 
 

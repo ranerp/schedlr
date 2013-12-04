@@ -99,7 +99,7 @@
                 <div class="form-group col-md-2">
                     <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span>Järgmine</button>
                 </div>
-                <div class="form-group col-md-8 col-sm-4">
+                <div class="form-group col-md-8">
                     <input type="text" class="form-control" id="date-today">
                 </div>
                 <div class="form-group col-md-2">
@@ -108,114 +108,116 @@
             </form>
         </div>
         <div class="row">
-            <div id="calendarList"></div>
-            <ul id='events'></ul>
-            <table class="table table-hover table-bordered table-striped calendar-click-listener">
-                <tr>
-                    <th>Kell</th>
-                    <th>Esmaspäev</th>
-                    <th>Teisipäev</th>
-                    <th>Kolmapäev</th>
-                    <th>Neljapäev</th>
-                    <th>Reede</th>
-                </tr>
-                <tr>
-                    <td >8</td>
-                    <td  id="1h8">Sisu</td>
-                    <td  id="2h8"></td>
-                    <td  id="3h8"></td>
-                    <td  id="4h8"></td>
-                    <td  id="5h8"></td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td id="1h9"></td>
-                    <td id="2h9"></td>
-                    <td id="3h9"></td>
-                    <td id="4h9"></td>
-                    <td id="5h9"></td>
-                </tr>
-                <tr>
-                    <td >10</td>
-                    <td id="1h10"></td>
-                    <td id="2h10"></td>
-                    <td id="3h10">Sisukas sisu</td>
-                    <td id="4h10"></td>
-                    <td id="5h10"></td>
-                </tr>
-                <tr>
-                    <td >11</td>
-                    <td id="1h11"></td>
-                    <td id="2h11"></td>
-                    <td id="3h11"></td>
-                    <td id="4h11"></td>
-                    <td id="5h11"></td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td id="1h12"></td>
-                    <td id="2h12"></td>
-                    <td id="3h12"></td>
-                    <td id="4h12"></td>
-                    <td id="5h12"></td>
-                </tr>
-                <tr>
-                    <td>13</td>
-                    <td id="1h13"></td>
-                    <td id="2h13"></td>
-                    <td id="3h13"></td>
-                    <td id="4h13"></td>
-                    <td id="5h13"></td>
-                </tr>
-                <tr>
-                    <td>14</td>
-                    <td id="1h14"></td>
-                    <td id="2h14"></td>
-                    <td id="3h14"></td>
-                    <td id="4h14"></td>
-                    <td id="5h14"></td>
-                </tr>
-                <tr>
-                    <td>15</td>
-                    <td id="1h15"></td>
-                    <td id="2h15"></td>
-                    <td id="3h15"></td>
-                    <td id="4h15"></td>
-                    <td id="5h15"></td>
-                </tr>
-                <tr>
-                    <td>16</td>
-                    <td id="1h16"></td>
-                    <td id="2h16"></td>
-                    <td id="3h16"></td>
-                    <td id="4h16"></td>
-                    <td id="5h16"></td>
-                </tr>
-                <tr>
-                    <td>17</td>
-                    <td id="1h17"></td>
-                    <td id="2h17"></td>
-                    <td id="3h17"></td>
-                    <td id="4h17"></td>
-                    <td id="5h17"></td>
-                </tr>
-                <tr>
-                    <td>18</td>
-                    <td id="1h18"></td>
-                    <td id="2h18"></td>
-                    <td id="3h18"></td>
-                    <td id="4h18"></td>
-                    <td id="5h18"></td>
-                </tr>
-                <tr>
-                    <td>19</td>
-                    <td id="1h19"></td>
-                    <td id="2h19"></td>
-                    <td id="3h19"></td>
-                    <td id="4h19"></td>
-                    <td id="5h19"></td>
-                </tr>
-            </table>
+            <div class="col-md-12">
+                <div id="calendarList"></div>
+                <ul id='events'></ul>
+                <table class="table table-hover table-bordered table-striped calendar-click-listener unselectable">
+                    <tr>
+                        <th class="unselectable col-md-1">Kell</th>
+                        <th class="unselectable col-md-2">Esmaspäev</th>
+                        <th class="unselectable col-md-2">Teisipäev</th>
+                        <th class="unselectable col-md-2">Kolmapäev</th>
+                        <th class="unselectable col-md-2">Neljapäev</th>
+                        <th class="unselectable col-md-2">Reede</th>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td id="1h8" class="full event-color-one" data-day="mon">Intelligentsed süsteemid</td>
+                        <td id="2h8" class="empty" data-day="tue"></td>
+                        <td id="3h8" class="empty" data-day="wed"></td>
+                        <td id="4h8" class="empty" data-day="thu"></td>
+                        <td id="5h8" class="empty" data-day="fri"></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td id="1h9" class="full event-color-one" data-day="mon"></td>
+                        <td id="2h9" class="empty" data-day="tue"></td>
+                        <td id="3h9" class="empty" data-day="wed"></td>
+                        <td id="4h9" class="empty" data-day="thu"></td>
+                        <td id="5h9" class="empty" data-day="fri"></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td id="1h10" class="empty" data-day="mon"></td>
+                        <td id="2h10" class="empty" data-day="tue"></td>
+                        <td id="3h10" class="full event-color-one" data-day="wed">Aine</td>
+                        <td id="4h10" class="empty" data-day="thu"></td>
+                        <td id="5h10" class="empty" data-day="fri"></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td id="1h11" class="empty" data-day="mon"></td>
+                        <td id="2h11" class="empty" data-day="tue"></td>
+                        <td id="3h11" class="empty" data-day="wed"></td>
+                        <td id="4h11" class="empty" data-day="thu"></td>
+                        <td id="5h11" class="empty" data-day="fri"></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td id="1h12" class="empty" data-day="mon"></td>
+                        <td id="2h12" class="empty" data-day="tue"></td>
+                        <td id="3h12" class="empty" data-day="wed"></td>
+                        <td id="4h12" class="empty" data-day="thu"></td>
+                        <td id="5h12" class="empty" data-day="fri"></td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td id="1h13" class="empty" data-day="mon"></td>
+                        <td id="2h13" class="empty" data-day="tue"></td>
+                        <td id="3h13" class="empty" data-day="wed"></td>
+                        <td id="4h13" class="empty" data-day="thu"></td>
+                        <td id="5h13" class="empty" data-day="fri"></td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td id="1h14" class="empty" data-day="mon"></td>
+                        <td id="2h14" class="empty" data-day="tue"></td>
+                        <td id="3h14" class="empty" data-day="wed"></td>
+                        <td id="4h14" class="empty" data-day="thu"></td>
+                        <td id="5h14" class="empty" data-day="fri"></td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td id="1h15" class="empty" data-day="mon"></td>
+                        <td id="2h15" class="empty" data-day="tue"></td>
+                        <td id="3h15" class="empty" data-day="wed"></td>
+                        <td id="4h15" class="empty" data-day="thu"></td>
+                        <td id="5h15" class="empty" data-day="fri"></td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td id="1h16" class="empty" data-day="mon"></td>
+                        <td id="2h16" class="empty" data-day="tue"></td>
+                        <td id="3h16" class="empty" data-day="wed"></td>
+                        <td id="4h16" class="empty" data-day="thu"></td>
+                        <td id="5h16" class="empty" data-day="fri"></td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td id="1h17" class="empty" data-day="mon"></td>
+                        <td id="2h17" class="empty" data-day="tue"></td>
+                        <td id="3h17" class="empty" data-day="wed"></td>
+                        <td id="4h17" class="empty" data-day="thu"></td>
+                        <td id="5h17" class="empty" data-day="fri"></td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td id="1h18" class="empty" data-day="mon"></td>
+                        <td id="2h18" class="empty" data-day="tue"></td>
+                        <td id="3h18" class="empty" data-day="wed"></td>
+                        <td id="4h18" class="empty" data-day="thu"></td>
+                        <td id="5h18" class="empty" data-day="fri"></td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td id="1h19" class="empty" data-day="mon"></td>
+                        <td id="2h19" class="empty" data-day="tue"></td>
+                        <td id="3h19" class="empty" data-day="wed"></td>
+                        <td id="4h19" class="empty" data-day="thu"></td>
+                        <td id="5h19" class="empty" data-day="fri"></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -265,7 +267,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <a href="#" class="filter-popup-submit btn btn-warning">Edasi</a>
+                <a href="#" class="filter-popup-submit btn btn-success">Edasi</a>
             </div>
         </div>
     </div>
@@ -303,7 +305,7 @@
                                         <p></p>
                                 </div>
                                 <div class="col-md-12">
-                                    <a href="#" class="filter-popup-submit btn btn-success">Lisa</a>
+                                    <a href="#" class="lecture-popup-submit btn btn-success" data-course="Rakenduste programmeerimine">Lisa</a>
                                 </div>
                             </div>
                         </div>
@@ -333,7 +335,7 @@
                                     <p></p>
                                 </div>
                                 <div class="col-md-12">
-                                    <a href="#" class="filter-popup-submit btn btn-success">Lisa</a>
+                                    <a href="#" class="lecture-popup-submit btn btn-success" data-course=".NET raamistik">Lisa</a>
                                 </div>
                             </div>
                         </div>
@@ -363,7 +365,7 @@
                                         <p></p>
                                 </div>
                                 <div class="col-md-12">
-                                    <a href="#" class="filter-popup-submit btn btn-success">Lisa</a>
+                                    <a href="#" class="lecture-popup-submit btn btn-success" data-course="Ülevaade psühholoogiast">Lisa</a>
                                 </div>
                             </div>
                         </div>
@@ -373,5 +375,20 @@
         </div>
     </div>
 </div>
+
+<div class="course-options-popup hidden panel panel-primary">
+
+    <div class="panel-heading drag-listener">
+        <h3 class="panel-title">Sätted <button type="button" class="course-options-popup-close panel" style="float:right;" data-dismiss="modal" aria-hidden="true">&times;</button></h3>
+    </div>
+    <div class="panel-body">
+        <div class="btn-group-vertical">
+            <a href="#" class="course-options-look btn btn-default">Vaata</a>
+            <a href="#" class="course-options-remove btn btn-default">Eemalda</a>
+            <a href="#" class="course-options-advise btn btn-default">Soovita</a>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
