@@ -11,6 +11,7 @@ $(document).ready( function(){
     };
 
     var calendarEvents = {
+        "nextId": 4,
         "eventsCount" : 3,
         "events":
             [
@@ -104,8 +105,9 @@ $(document).ready( function(){
         calendarSelectedRowsArray.startDate = $this;
         calendarSelectedRowsArray.endDate = $this;
 
-        var id = calendarEvents.eventsCount + 1;
-        calendarEvents.eventsCount = id;
+        var id = calendarEvents.nextId;
+        calendarEvents.nextId = id + 1;
+        calendarEvents.eventsCount += 1;
 
         calendarSelectedRowsArray.startDate.attr("data-event-id", id);
 
