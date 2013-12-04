@@ -191,6 +191,10 @@ textarea {
     border-bottom: 0px solid black !important;
 }
 
+.calendar-event {
+    overflow: hidden;
+}
+
 .unselectable {
     -webkit-user-select: none; /* Chrome/Safari */
     -moz-user-select: none; /* Firefox */
