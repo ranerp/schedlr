@@ -11,7 +11,7 @@ $(document).ready( function(){
     };
 
     var calendarEvents = {
-        "eventsCount" : "3",
+        "eventsCount" : 3,
         "events":
             [
                 {"id": "1", "subject": "Intelligentsed süsteemid", "startDate": "1h8", "endDate": "1h12"},
@@ -105,7 +105,7 @@ $(document).ready( function(){
         calendarSelectedRowsArray.endDate = $this;
 
         var id = calendarEvents.eventsCount + 1;
-        calendarEvents.eventsCount = id + 1;
+        calendarEvents.eventsCount = id;
 
         calendarSelectedRowsArray.startDate.attr("data-event-id", id);
 
@@ -182,7 +182,16 @@ $(document).ready( function(){
         var startId = calendarSelectedRowsArray.startDate.attr("id");
         var endId = calendarSelectedRowsArray.endDate.attr("id");
 
+        calendarEvents.events.push({
+            "id": calendarSelectedRowsArray.startDate.attr("data-event-id"),
+            "subject": course,
+            "startDate": startId,
+            "endDate": endId
+            });
+
         pushEventToCalendar(startId, endId, course, calendarSelectedRowsArray.startDate.attr("data-event-id"));
+
+        console.log(calendarEvents);
 
         removeSelectedRow();
     });
@@ -310,6 +319,14 @@ $(document).ready( function(){
             $this.unbind("mousedown");
             $this.on("mousedown", calendarMouseDownListener);
         });
+
+        for(var i = 0; i < calendarEvents.eventsCount; i++) {
+            if(calendarEvents.events[i].id == eventId)
+                if(i != -1) {
+                    calendarEvents.events.splice(i, 1);
+                    calendarEvents.eventsCount -= 1;
+                }
+        }
 
         $(".course-options-popup").addClass("hidden");
     });
