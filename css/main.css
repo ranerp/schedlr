@@ -138,6 +138,15 @@ textarea {
     width: 120px;
 }
 
+.course-lookup-popup {
+    position: absolute;
+    height: auto;
+    left: 50%;
+    top : 50%;
+    z-index: 999;
+    width: 500px;
+}
+
 .lecture-popup {
     position: absolute;
     height: auto;

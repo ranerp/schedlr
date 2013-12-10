@@ -59,6 +59,31 @@ $(document).ready(function() {
         calendar.resolveTopLocation($friendsAdvisePopUp, $courseOptionsPopup.css("top"));
     });
 
+    $(".course-options-look-submit").on("click", function(e) {
+        var id = $(this).parents(".course-options-popup").attr("data-event-id");
+        var $courseLookupPopup = $(".course-lookup-popup");
+        var $courseOptionsPopup = $(".course-options-popup");
+
+        for(var i = 0; i < calendar.calendarEvents.eventsCount; i++) {
+            var event = calendar.calendarEvents.events[i];
+            if(event.id == id) {
+                $courseLookupPopup.find(".course-title").html(event.subject);
+                $courseLookupPopup.removeClass("hidden");
+
+                calendar.resolveLeftLocation($courseLookupPopup, $courseOptionsPopup.css("left"));
+                calendar.resolveTopLocation($courseLookupPopup, $courseOptionsPopup.css("top"));
+                $courseOptionsPopup.addClass("hidden");
+                break;
+            }
+        }
+    });
+
+    $(".course-lookup-popup-close").on("click", function(e) {
+        var $courseLookupPopup = $(".course-lookup-popup");
+
+        $courseLookupPopup.addClass("hidden");
+    });
+
     $(".course-options-remove-submit").on("click", function() {
         var eventId = $(this).parents(".course-options-popup").attr("data-event-id");
 
@@ -107,7 +132,7 @@ $(document).ready(function() {
     * Test events
     * */
 
-    /*var events = {
+    var events = {
         "nextId" : 1,
         "eventsCount" : 3,
         "events":
@@ -116,8 +141,8 @@ $(document).ready(function() {
                 {"id": "2", "subject": "Bakalaurusetöö seminar", "startDate": "1h14", "endDate": "1h16"},
                 {"id": "3", "subject": "Krüptoloogia", "startDate": "5h8", "endDate": "5h12"}
             ]
-    };*/
+    };
     /* Set calendarEvents and populate calendar with data*/
-   /*calendar.calendarEvents = events;
-    calendar.populateCalendar(events);*/
+   calendar.calendarEvents = events;
+    calendar.populateCalendar(events);
 });
