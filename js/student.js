@@ -89,9 +89,10 @@ $(document).ready(function() {
 
 
     /*
-    * @parameter 1: first popup when rows are selected and user releases mouse button
-    * @parameter 2: button/href to press to add event to calendar
-    * @parameter 3: on event click which popup to show
+    * @parameter 1: button to click to get authenticated with google calendar
+    * @parameter 2: on event click which popup to show
+    * @parameter 3: button/href to press to add event to calendar
+    * @parameter 4: first popup when rows are selected and user releases mouse button
     * */
     calendar.setAuthClick(".handle-auth-click");
     calendar.setEventAddButton(".lecture-popup-submit");
