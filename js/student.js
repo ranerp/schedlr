@@ -93,7 +93,6 @@ $(document).ready(function() {
     * @parameter 2: button/href to press to add event to calendar
     * @parameter 3: on event click which popup to show
     * */
-    console.log(calendar);
     calendar.setAuthClick(".handle-auth-click");
     calendar.setEventAddButton(".lecture-popup-submit");
     calendar.setEventClickPopup(".course-options-popup");
@@ -107,7 +106,7 @@ $(document).ready(function() {
     * Test events
     * */
 
-    var events = {
+    /*var events = {
         "nextId" : 1,
         "eventsCount" : 3,
         "events":
@@ -116,8 +115,8 @@ $(document).ready(function() {
                 {"id": "2", "subject": "Bakalaurusetöö seminar", "startDate": "1h14", "endDate": "1h16"},
                 {"id": "3", "subject": "Krüptoloogia", "startDate": "5h8", "endDate": "5h12"}
             ]
-    };
+    };*/
     /* Set calendarEvents and populate calendar with data*/
-   calendar.calendarEvents = events;
-    calendar.populateCalendar(events);
+   /*calendar.calendarEvents = events;
+    calendar.populateCalendar(events);*/
 });
