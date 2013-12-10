@@ -37,10 +37,10 @@
         }
 
         this.rotateColorAt = function() {
-            if(this.colorAt == 0)
-                this.colorAt = 1;
-            else
+            if(this.colorAt == this.eventColors.length)
                 this.colorAt = 0;
+            else
+                this.colorAt++;
         }
 
         this.monday = new Date();
