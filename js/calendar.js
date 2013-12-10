@@ -132,8 +132,8 @@
                             cal.calendarEvents.eventsCount++;
                             cal.calendarEvents.nextId++;
                             tempObj.subject = resp.items[i].summary;
-                            tempObj.startDate = cal.convertDateForFeed(new Date(resp.items[i].start.dateTime));
-                            tempObj.endDate = cal.convertDateForFeed(new Date(resp.items[i].end.dateTime));
+                            tempObj.startDate = cal.convertDateForFeed(new Date(resp.items[i].start.dateTime), "start");
+                            tempObj.endDate = cal.convertDateForFeed(new Date(resp.items[i].end.dateTime), "end");
                             cal.calendarEvents.events.push(tempObj);
                         }catch(e){}
                     }
@@ -143,8 +143,12 @@
         });
     };
 
-    Calendar.prototype.convertDateForFeed = function(dateTime) {
-        var hour = dateTime.getHours();
+    Calendar.prototype.convertDateForFeed = function(dateTime, type) {
+        if(type == "end")
+            var hour = parseInt(dateTime.getHours()) - 1;
+        else
+            var hour = dateTime.getHours();
+
         var day = dateTime.getDay();
 
         return day + "h" + hour;
