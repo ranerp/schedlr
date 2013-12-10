@@ -363,10 +363,15 @@
 
         this.calendarSelectedRowsArray.startDate.addClass("full");
 
+        var eventId = this.calendarSelectedRowsArray.startDate.attr("data-event-id");
         var startId = this.calendarSelectedRowsArray.startDate.attr("id");
         var endId = this.calendarSelectedRowsArray.endDate.attr("id");
 
-        this.pushEventToCalendar(startId, endId, course, this.calendarSelectedRowsArray.startDate.attr("data-event-id"));
+
+        this.calendarEvents.events.push({"id": eventId, "subject": course, "startDate": startId, "endDate": endId});
+
+
+        this.pushEventToCalendar(startId, endId, course, eventId);
 
         this.removeSelectedRow();
     };
