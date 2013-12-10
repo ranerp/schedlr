@@ -396,3 +396,13 @@
     Calendar.prototype.setAuthClick = function(button) {
         this.authClickButton = button;
     };
+
+$(document).ready(function() {
+    $('#date-today').datepicker({dateFormat: 'DD  MM  yy '}).datepicker('setDate', new Date());
+
+    $(function() {
+        $( "#datepicker" ).datepicker({
+            inline: true
+        });
+    });
+});

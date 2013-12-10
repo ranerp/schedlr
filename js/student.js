@@ -93,7 +93,7 @@ $(document).ready(function() {
     * @parameter 2: on event click which popup to show
     * @parameter 3: button/href to press to add event to calendar
     * @parameter 4: first popup when rows are selected and user releases mouse button
-    * */
+    */
     calendar.setAuthClick(".handle-auth-click");
     calendar.setEventAddButton(".lecture-popup-submit");
     calendar.setEventClickPopup(".course-options-popup");
