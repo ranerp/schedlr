@@ -98,7 +98,7 @@ $(document).ready(function() {
             $this.addClass("empty");
             $this.html("");
             $this.unbind("mousedown");
-            $this.on("mousedown", calendar.mouseDownListener);
+            $this.on("mousedown", function() { calendar.mouseDownListener(this, event) });
         });
 
         $(".course-options-popup").addClass("hidden");
@@ -132,7 +132,7 @@ $(document).ready(function() {
     * Test events
     * */
 
-    var events = {
+   /* var events = {
         "nextId" : 1,
         "eventsCount" : 3,
         "events":
@@ -141,8 +141,8 @@ $(document).ready(function() {
                 {"id": "2", "subject": "Bakalaurusetöö seminar", "startDate": "1h14", "endDate": "1h16"},
                 {"id": "3", "subject": "Krüptoloogia", "startDate": "5h8", "endDate": "5h12"}
             ]
-    };
+    };*/
     /* Set calendarEvents and populate calendar with data*/
-   calendar.calendarEvents = events;
-    calendar.populateCalendar(events);
+  /* calendar.calendarEvents = events;
+    calendar.populateCalendar(events);*/
 });

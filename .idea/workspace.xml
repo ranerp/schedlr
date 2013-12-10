@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f484a976-258d-47ff-b0f5-6352362d5bbb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index_student.html" afterPath="$PROJECT_DIR$/index_student.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/student.js" afterPath="$PROJECT_DIR$/js/student.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -11,7 +9,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/index.html" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386263497502" ignored="false" />
     <file path="/main.css" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386686251274" ignored="false" />
-    <file path="/Dummy.txt" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386685563275" ignored="false" />
+    <file path="/Dummy.txt" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386687011818" ignored="false" />
     <file path="/calendar.js" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386685536666" ignored="false" />
     <file path="/main.js" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1385932951866" ignored="false" />
     <file path="/index_raner.html" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386677029827" ignored="false" />
@@ -20,7 +18,7 @@
     <file path="$PROJECT_DIR$/../varsaaru/fuel/app/classes/model/bill.php" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386101106392" ignored="false" />
     <file path="$PROJECT_DIR$/../varsaaru/fuel/app/classes/controller/bills.php" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386101108956" ignored="false" />
     <file path="/bills.php" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386101108956" ignored="false" />
-    <file path="/student.js" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386686975399" ignored="false" />
+    <file path="/student.js" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386687147487" ignored="false" />
     <file path="/index_student.html" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386686532027" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +42,7 @@
       <file leaf-file-name="calendar.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/calendar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="263" column="70" selection-start="8979" selection-end="8979" vertical-scroll-proportion="-9.04">
+            <state line="209" column="40" selection-start="6983" selection-end="7000" vertical-scroll-proportion="-10.8">
               <folding />
             </state>
           </provider>
@@ -53,7 +51,7 @@
       <file leaf-file-name="student.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/student.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="93" selection-start="2911" selection-end="2911" vertical-scroll-proportion="0.50239235">
+            <state line="146" column="40" selection-start="5494" selection-end="5494" vertical-scroll-proportion="0.8705302">
               <folding />
             </state>
           </provider>
@@ -335,7 +333,11 @@
       <created>1386685566521</created>
       <updated>1386685566521</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="courselookup">
+      <created>1386687015238</created>
+      <updated>1386687015238</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -404,7 +406,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="date-today datepicker add" />
+    <option name="LAST_COMMIT_MESSAGE" value="courselookup" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -429,6 +431,7 @@
     <MESSAGE value="comment out tests" />
     <MESSAGE value="fix" />
     <MESSAGE value="date-today datepicker add" />
+    <MESSAGE value="courselookup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -528,14 +531,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/calendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="263" column="70" selection-start="8979" selection-end="8979" vertical-scroll-proportion="-9.04">
+        <state line="209" column="40" selection-start="6983" selection-end="7000" vertical-scroll-proportion="-10.8">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/student.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="93" selection-start="2911" selection-end="2911" vertical-scroll-proportion="0.50239235">
+        <state line="146" column="40" selection-start="5494" selection-end="5494" vertical-scroll-proportion="0.8705302">
           <folding />
         </state>
       </provider>
