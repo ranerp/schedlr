@@ -30,17 +30,20 @@
         };
 
         this.eventColors = ["event-color-one", "event-color-two"];
-        this.colorAt = 0;
+        this.colorAt;
 
         this.getEventColorClass = function() {
             return this.eventColors[this.colorAt];
         }
 
-        this.rotateColorAt = function() {
-            if(this.colorAt == this.eventColors.length)
-                this.colorAt = 0;
-            else
-                this.colorAt++;
+        this.rotateColorAt = function(color) {
+            if(color == 1)
+                this.colorAt = 1;
+            else if (color == 0){
+                this.colorAt=0;
+				console.log(color);
+
+			}
         }
 
         this.monday = new Date();
@@ -49,8 +52,8 @@
 
         this.sunday = new Date();
         this.sunday.setTime(this.sunday.getTime() + (1000 * 3600 * 24 * (7 - this.dayNumber)));
-
-        this.fullMonthFromToday = new Date().setTime(this.monday.getTime() + (1000 * 3600 * 24 * 31));
+		this.fullMonthFromToday=new Date();
+        this.fullMonthFromToday.setTime(this.monday.getTime() + (1000 * 3600 * 24 * 31));
 
         this.clientId = "267206477795-nmicslqg1i7kvt6tanp8d8208nnke05p.apps.googleusercontent.com";
         this.apiKey = "AIzaSyDXoUmbATnAIXsOWk9qqWZZYHizxD_k60s";
@@ -114,7 +117,7 @@
         });
     };
 
-    Calendar.prototype.makeApiCall = function(callId) {
+    Calendar.prototype.makeApiCall = function(callId, calColor) {
         var cal = this;
         gapi.client.load('calendar', 'v3', function() {
             var request = gapi.client.calendar.events.list({
@@ -134,7 +137,8 @@
                             tempObj.subject = resp.items[i].summary;
                             tempObj.startDate = cal.convertDateForFeed(new Date(resp.items[i].start.dateTime), "start");
                             tempObj.endDate = cal.convertDateForFeed(new Date(resp.items[i].end.dateTime), "end");
-                            cal.calendarEvents.events.push(tempObj);
+                            tempObj.color=calColor;
+							cal.calendarEvents.events.push(tempObj);
                         }catch(e){}
                     }
                     cal.populateCalendar(cal.calendarEvents);
@@ -142,12 +146,37 @@
             });
         });
     };
+	 Calendar.prototype.makeEventsApiCall = function(callId) {
+        var cal = this;
+        gapi.client.load('calendar', 'v3', function() {
+            var request = gapi.client.calendar.events.list({
+                'calendarId': callId,
+                'timeMin': cal.monday,
+                'timeMax': cal.fullMonthFromToday
+            });
+            request.execute(function(resp) {
+                try{
+				var calendarEntry="";
+	                for (var i = 0; i < resp.items.length; i++) {
+                        var eventTime=new Date(resp.items[i].start.dateTime);
+						eventStartHour=eventTime.getHours();
+						var dateToday=$.datepicker.formatDate('DD dd MM  yy ', new Date(resp.items[i].start.dateTime));
+						calendarEntry+='<strong>'+resp.items[i].summary+'</strong> - '+dateToday+' '+ eventStartHour+'.00 </br>';				
+                    }
+					var $newsContainer = $(".news-box");
+					$newsContainer.append(calendarEntry);
+						
+                } catch(e){}
+            });
+        });
+    };
 
     Calendar.prototype.convertDateForFeed = function(dateTime, type) {
-        if(type == "end")
-            var hour = parseInt(dateTime.getHours()) - 1;
-        else
-            var hour = dateTime.getHours();
+           var hour = parseInt(dateTime.getHours())-1 ;
+			if(parseInt(dateTime.getMinutes())>0) 
+				hour++;
+			else
+				var hour = dateTime.getHours();
 
         var day = dateTime.getDay();
 
@@ -160,14 +189,17 @@
             var request = gapi.client.calendar.calendarList.list();
             request.execute(function(resp) {
                 for (var i = 0, length = resp.items.length; i < length; i++){
-                    if(resp.items[i].summary == cal.scheduleTypes.schedule ||
-                        resp.items[i].summary == cal.scheduleTypes.homework	)
+                    if(resp.items[i].summary == cal.scheduleTypes.schedule	)
                     {
-                        cal.makeApiCall(resp.items[i].id);
+                        cal.makeApiCall(resp.items[i].id, 1);
                     }
-                    else if(resp.items[i].summary == cal.scheduleTypes.schedule)
+                    else if(resp.items[i].summary == cal.scheduleTypes.homework)
                     {
-                        cal.makeApiCall(resp.items[i].id);
+                        cal.makeApiCall(resp.items[i].id, 0);
+                    }
+					else if(resp.items[i].summary == "Events")
+                    {
+                        cal.makeEventsApiCall(resp.items[i].id);
                     }
                 }
             });
@@ -177,7 +209,7 @@
     Calendar.prototype.populateCalendar = function(events) {
         for(var i = 0; i < events.eventsCount; i++) {
             var event = events.events[i];
-            this.pushEventToCalendar(event.startDate, event.endDate, event.subject, event.id);
+            this.pushEventToCalendar(event.startDate, event.endDate, event.subject, event.id, event.color);
         }
     };
 
@@ -299,7 +331,7 @@
 
     };
 
-    Calendar.prototype.pushEventToCalendar = function(start, end, subject, eventId) {
+    Calendar.prototype.pushEventToCalendar = function(start, end, subject, eventId, color) {
         var cal = this.calObj;
         var startDates = start.split("h");
         startDates[0] = parseInt(startDates[0]);
@@ -358,8 +390,7 @@
             if(endDates[0] == tdDates[0] && tdDates[1] == endDates[1])
                 $(this).addClass("border-bottom");
         });
-
-        cal.rotateColorAt();
+		cal.rotateColorAt(color);
     };
 
     Calendar.prototype.addEvent = function(object) {

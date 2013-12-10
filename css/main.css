@@ -178,11 +178,14 @@ textarea {
 }
 
 .event-color-one {
-    background-color: #fdc642 !important;
+    background-color: #1c94c4 !important;
 }
 
 .event-color-two {
     background-color: #fbe989 !important;;
+}
+.event-color-three {
+    background-color: #fff !important;;
 }
 
 .no-bottom-padding {
