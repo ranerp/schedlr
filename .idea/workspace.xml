@@ -2,22 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f484a976-258d-47ff-b0f5-6352362d5bbb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/calendar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/student.js" />
+      <change type="DELETED" beforePath="C:\www\schedlr\js\main_raner.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\www\schedlr\main_raner.js" afterPath="" />
+      <change type="MOVED" beforePath="C:\www\schedlr\index_raner.html" afterPath="$PROJECT_DIR$/index_student.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="schedlr.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/index.html" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1385928699461" ignored="false" />
+    <file path="/index.html" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386263497502" ignored="false" />
     <file path="/main.css" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386197699384" ignored="false" />
-    <file path="/Dummy.txt" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386197439390" ignored="false" />
-    <file path="/calendar.js" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1385385031474" ignored="false" />
+    <file path="/Dummy.txt" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386593239316" ignored="false" />
+    <file path="/calendar.js" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386685033940" ignored="false" />
     <file path="/main.js" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1385932951866" ignored="false" />
-    <file path="/index_raner.html" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386181562517" ignored="false" />
-    <file path="/main_raner.js" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386197654234" ignored="false" />
+    <file path="/index_raner.html" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386677029827" ignored="false" />
+    <file path="/main_raner.js" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386612591251" ignored="false" />
     <file path="/bill.php" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386101028361" ignored="false" />
     <file path="$PROJECT_DIR$/../varsaaru/fuel/app/classes/model/bill.php" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386101106392" ignored="false" />
     <file path="$PROJECT_DIR$/../varsaaru/fuel/app/classes/controller/bills.php" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386101108956" ignored="false" />
     <file path="/bills.php" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386101108956" ignored="false" />
+    <file path="/student.js" changelist="f484a976-258d-47ff-b0f5-6352362d5bbb" time="1386684904624" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,37 +42,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index_raner.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index_raner.html">
+      <file leaf-file-name="calendar.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/calendar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="195" column="42" selection-start="10415" selection-end="10415" vertical-scroll-proportion="0.0">
+            <state line="263" column="70" selection-start="8979" selection-end="8979" vertical-scroll-proportion="0.42540073">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/css/main.css">
+      <file leaf-file-name="student.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/student.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="194" column="21" selection-start="3410" selection-end="3410" vertical-scroll-proportion="0.52508754">
+            <state line="64" column="60" selection-start="2363" selection-end="2363" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main_raner.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/main_raner.js">
+      <file leaf-file-name="index_student.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index_student.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="217" column="57" selection-start="6775" selection-end="6775" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cal.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/cal.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="69" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.0">
+            <state line="422" column="7" selection-start="22497" selection-end="22497" vertical-scroll-proportion="-16.918367">
               <folding />
             </state>
           </provider>
@@ -94,20 +90,27 @@
         <option value="$PROJECT_DIR$/css/core.css" />
         <option value="$PROJECT_DIR$/../varsaaru/fuel/app/views/layout.tpl" />
         <option value="D:/play/Project-SwordFish/public/stylesheets/main.css" />
-        <option value="$PROJECT_DIR$/js/calendar.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/main.js" />
-        <option value="$PROJECT_DIR$/index_raner.html" />
-        <option value="$PROJECT_DIR$/js/main_raner.js" />
         <option value="$PROJECT_DIR$/css/main.css" />
+        <option value="$PROJECT_DIR$/main_raner.js" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp10941/home2/r/rnrz/public_html/schedlr/index.html" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp06919/home2/r/rnrz/public_html/schedlr/main_raner.js" />
+        <option value="$PROJECT_DIR$/js/cal.js" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp31951/home2/r/rnrz/public_html/schedlr/main_raner.js" />
+        <option value="$PROJECT_DIR$/js/main_raner.js" />
+        <option value="$PROJECT_DIR$/index_raner.html" />
+        <option value="$PROJECT_DIR$/js/student.js" />
+        <option value="$PROJECT_DIR$/js/calendar.js" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="541" />
-    <option name="width" value="1370" />
-    <option name="height" value="1040" />
+    <option name="x" value="482" />
+    <option name="y" value="11" />
+    <option name="width" value="1342" />
+    <option name="height" value="1019" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -165,24 +168,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="schedlr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="schedlr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -319,23 +304,27 @@
       <created>1386187981729</created>
       <updated>1386187981729</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="event div overflow hidden">
+      <created>1386197741335</created>
+      <updated>1386197741335</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="541" y="0" width="1370" height="1040" extended-state="0" />
-    <editor active="true" />
+    <frame x="482" y="11" width="1342" height="1019" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.116972476" sideWeight="0.6704417" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20078126" sideWeight="0.6704417" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19026047" sideWeight="0.4872579" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997735" sideWeight="0.5127421" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295583" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14156285" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -388,7 +377,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="nextId unikaalse id jaoks" />
+    <option name="LAST_COMMIT_MESSAGE" value="event div overflow hidden" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -409,46 +398,17 @@
     <MESSAGE value="üritasin resolvePositionit parandata..veidi õnnestus..aga pole ikka piisavalt hea" />
     <MESSAGE value="kui event kalendrist eemaldada siis nüüd eemaldab ka calendarEvents arrayst vastava objekti" />
     <MESSAGE value="nextId unikaalse id jaoks" />
+    <MESSAGE value="event div overflow hidden" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/cal.js">
+    <entry file="file://$PROJECT_DIR$/index_ottoson.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="69" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/play/Project-SwordFish/public/javascripts/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="151" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://D:/play/Project-SwordFish/app/views/calendar.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="36" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://D:/play/Project-SwordFish/public/stylesheets/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="196" column="0" selection-start="3365" selection-end="3446" vertical-scroll-proportion="0.964539" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../varsaaru/public/js/calendar/calendar_init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="56" selection-start="5572" selection-end="5580" vertical-scroll-proportion="1.5494505" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../varsaaru/public/css/bootstrap-panels.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/schedlr-logo.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/img/schedlr-logo2.png">
@@ -461,45 +421,68 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/img/schedlr-logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/schedlr-logo.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://D:/play/Project-SwordFish/public/javascripts/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/play/Project-SwordFish/public/javascripts/calendar_old.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="705" selection-end="705" vertical-scroll-proportion="-5.7594166">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="31" selection-start="8538" selection-end="8538" vertical-scroll-proportion="0.71829265" />
+        <state line="21" column="39" selection-start="655" selection-end="655" vertical-scroll-proportion="-0.76971215">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/scp55267/home2/r/rnrz/public_html/schedlr/js/calendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="110" selection-end="110" vertical-scroll-proportion="0.12345679" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../varsaaru/public/js/chart3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="289" column="18" selection-start="10327" selection-end="10331" vertical-scroll-proportion="0.33333334" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.16148326">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/cal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="69" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.0">
+        <state line="16" column="34" selection-start="743" selection-end="743" vertical-scroll-proportion="0.28708133">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index_raner.html">
+    <entry file="file://$PROJECT_DIR$/index_student.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="42" selection-start="10415" selection-end="10415" vertical-scroll-proportion="0.0">
+        <state line="422" column="7" selection-start="22497" selection-end="22497" vertical-scroll-proportion="-16.918367">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main_raner.js">
+    <entry file="file://$PROJECT_DIR$/js/student.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="217" column="57" selection-start="6775" selection-end="6775" vertical-scroll-proportion="0.0">
+        <state line="64" column="60" selection-start="2363" selection-end="2363" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
+    <entry file="file://$PROJECT_DIR$/js/calendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="21" selection-start="3410" selection-end="3410" vertical-scroll-proportion="0.52508754">
+        <state line="263" column="70" selection-start="8979" selection-end="8979" vertical-scroll-proportion="0.42540073">
           <folding />
         </state>
       </provider>
