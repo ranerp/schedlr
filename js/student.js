@@ -22,16 +22,7 @@ $(document).ready(function() {
         var $lecturePopup = $(".lecture-popup");
         $lecturePopup.addClass("hidden");
 
-        var course = $(this).attr("data-course");
-
-        calendar.calendarSelectedRowsArray.startDate.addClass("full");
-
-        var startId = calendar.calendarSelectedRowsArray.startDate.attr("id");
-        var endId = calendar.calendarSelectedRowsArray.endDate.attr("id");
-
-        calendar.pushEventToCalendar(startId, endId, course, calendar.calendarSelectedRowsArray.startDate.attr("data-event-id"));
-
-        calendar.removeSelectedRow();
+        calendar.addEvent(this);
     });
 
     $(".lecture-popup-close").on("click", function() {

@@ -358,6 +358,19 @@
         cal.rotateColorAt();
     };
 
+    Calendar.prototype.addEvent = function(object) {
+        var course = $(object).attr("data-course");
+
+        this.calendarSelectedRowsArray.startDate.addClass("full");
+
+        var startId = this.calendarSelectedRowsArray.startDate.attr("id");
+        var endId = this.calendarSelectedRowsArray.endDate.attr("id");
+
+        this.pushEventToCalendar(startId, endId, course, this.calendarSelectedRowsArray.startDate.attr("data-event-id"));
+
+        this.removeSelectedRow();
+    };
+
     Calendar.prototype.addEventPart =function(div, column, id) {
         var calObj = this;
 
