@@ -143,6 +143,13 @@ textarea {
     z-index: 999;
     width: 60%;
 }
+
+.search-results-popup{
+    position: absolute;
+	left:35%;
+    z-index: 999;
+    width: 30%;
+}
 .classes-popup{
     position: absolute;
 	left:35%;
@@ -447,6 +454,7 @@ textarea {
     h3 {
         page-break-after: avoid;
     }
+	
 	.hide_in_print{
 		display:none;
 	}

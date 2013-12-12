@@ -9,6 +9,7 @@ $(document).ready(function() {
 		$('.curriculum-popup').addClass("hidden");
 		$('.teacher-popup').addClass("hidden");
 		$('.curriculum-description-popup').addClass("hidden");
+		$('.search-results-popup').addClass("hidden");
 		
 	});
 	$('.pick-institution-popup-close').on("click", function() {
@@ -34,6 +35,7 @@ $(document).ready(function() {
 		$('.classes-popup').addClass("hidden");
 		$('.curriculum-popup').addClass("hidden");
 		$('.teacher-popup').addClass("hidden");
+		$('.search-results-popup').addClass("hidden");
 	});	
 
 	$('.curriculum-description-popup-close').on("click", function() {
@@ -53,6 +55,7 @@ $(document).ready(function() {
 		$('.curriculum-popup').addClass("hidden");
 		$('.teacher-popup').addClass("hidden");
 		$('.curriculum-description-popup').addClass("hidden");
+		$('.search-results-popup').addClass("hidden");
 	});
 	$('.pick-institution-popup-close').on("click", function() {
 		$('.pick-institution-popup').addClass("hidden");
@@ -83,6 +86,7 @@ $(document).ready(function() {
 		$('.curriculum-popup').addClass("hidden");
 		$('.teacher-popup').addClass("hidden");
 		$('.curriculum-description-popup').addClass("hidden");
+		$('.search-results-popup').addClass("hidden");
 	});
 	$('.pick-institution-popup-close').on("click", function() {
 		$('.pick-institution-popup').addClass("hidden");
@@ -103,5 +107,21 @@ $(document).ready(function() {
 	
 	
 	/* LÕPP: õppekava script*/
-			
+	/*ALGUS: otsing*/
+	$('.search-box').keyup("click", function(e) {
+		if(e.keyCode == 13)
+			{
+			$('.search-results-popup').removeClass("hidden");
+			$('.classes-popup').addClass("hidden");
+			$('.curriculum-popup').addClass("hidden");
+			$('.teacher-popup').addClass("hidden");
+			$('.curriculum-description-popup').addClass("hidden");
+			$('.pick-institution-popup').addClass("hidden");
+			}
+	});	
+	
+	$('.search-results-popup-close').on("click", function() {
+		$('.search-results-popup').addClass("hidden");
+	});	
+	/*LõPP: otsing*/
 });
