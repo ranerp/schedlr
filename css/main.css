@@ -97,6 +97,7 @@ textarea {
    Author's custom styles
    ========================================================================== */
 .full-width-container {
+	margin:0 auto;
     padding: 0 15px
 }
 
@@ -121,7 +122,39 @@ textarea {
     background-color: orange;
     border-color: #6A6FB2;
 }
+.pick-institution-popup{
+    position: absolute;
+	left:40%;
+    z-index: 999;
+    width: 20%;
+    min-width: 300px;
+}
 
+.curriculum-popup{
+    position: absolute;
+	left:35%;
+    z-index: 999;
+    width: 30%;
+}
+
+.curriculum-description-popup{
+    position: absolute;
+	left:20%;
+    z-index: 999;
+    width: 60%;
+}
+.classes-popup{
+    position: absolute;
+	left:35%;
+    z-index: 999;
+    width: 30%;
+}
+.teacher-popup{
+    position: absolute;
+	left:35%;
+    z-index: 999;
+    width: 30%;
+}
 .filter-popup {
     position: absolute;
     left: 50%;
@@ -414,4 +447,7 @@ textarea {
     h3 {
         page-break-after: avoid;
     }
+	.hide_in_print{
+		display:none;
+	}
 }

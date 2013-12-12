@@ -20,7 +20,7 @@
         }
     </style>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
@@ -28,7 +28,7 @@
     <script src="js/plugins.js"></script>
     <script src="js/calendar.js"></script>
     <script src="js/student.js"></script>
-    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+    <!--<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>-->
     <script src="js/jquery-1.9.1.js"></script>
     <script src="js/jquery-ui-1.10.3.custom.js"></script>
     <script src="js/vendor/bootstrap-formhelpers-selectbox.js"></script>
@@ -54,9 +54,9 @@
                 </div>
                 <div class="row">
                     <div class="btn-group-justified">
-                        <a href="#" class="btn btn-default"><i class="glyphicon glyphicon-book"></i> Õppekavad</a>
-                        <a href="#" class="btn btn-default"><i class="glyphicon glyphicon-list"></i> Õppeained</a>
-                        <a href="#" class="btn btn-default"><i class="glyphicon glyphicon-user"></i> Õppejõud</a>
+                        <a href="#" class="btn btn-default show-curriculum-popup"><i class="glyphicon glyphicon-book"></i> Õppekavad</a>
+                        <a href="#" class="btn btn-default show-classes-popup"><i class="glyphicon glyphicon-list"></i> Õppeained</a>
+                        <a href="#" class="btn btn-default show-teacher-popup"><i class="glyphicon glyphicon-user"></i> Õppejõud</a>
                     </div>
                 </div>
             </div>
@@ -94,15 +94,15 @@
 </nav>
 <div class="full-width-container">
     <div class="col-md-9">
-        <div class="row">
+        <div class="row hide_in_print">
             <form class="form-inline" role="form">
                 <div class="form-group col-md-2">
-                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span>Järgmine</button>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span>Eelmine</button>
                 </div>
                 <div class="form-group col-md-8">
                     <input type="text" class="form-control" id="date-today">
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-2 text-right">
                     <button type="submit" class="btn btn-default">Järgmine<span class="glyphicon glyphicon-arrow-right"></span></button>
                 </div>
             </form>
@@ -221,7 +221,7 @@
         </div>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-3 hide_in_print">
         <div class="row">
             <div id="datepicker"></div>
         </div>
@@ -440,6 +440,478 @@
         </div>
     </div>
 </div>
+<div class="hidden panel panel-primary pick-institution-popup" data-time="">
+<!--ALGUS: instituudi valiku list-->
+    <div class="panel-heading drag-listener">
+        <h3 class="panel-title">Vali instituut <button type="button" class="pick-institution-popup-close panel" style="float:right;" data-dismiss="modal" aria-hidden="true">&times;</button></h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group">
+                    <span class="input-group-addon ">Instituut</span>
+                    <div class="bfh-selectbox">
+                        <div data-value="0">Kõik</div>
+                        <div data-value="1">Informaatika instituut</div>
+                        <div data-value="2">Psühholoogia instituut</div>
+                        <div data-value="2">Ajaloo instituut</div>
+                        <div data-value="2">Matemaatika instituut</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <a href="#" class="pick-institution-curriculum-popup-submit hidden btn btn-success">Edasi</a>
+                <a href="#" class="pick-institution-classes-popup-submit hidden btn btn-success">Edasi</a>
+                <a href="#" class="pick-institution-teacher-popup-submit hidden btn btn-success">Edasi</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Lõpp: instituudi valiku list-->
+<!--ALGUS: Siin on siis Kavade list-->    
+<div class="curriculum-popup hidden panel panel-primary" data-time="">
+    <div class="panel-heading drag-listener">
+        <h3 class="panel-title">Õppekavad - informaatika<button type="button" class="curriculum-popup-close panel" style="float:right;" data-dismiss="modal" aria-hidden="true">&times;</button></h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="panel-group accordion" >
+                <div class="panel panel-default">
+                    <div class="panel-heading drag-listener">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent=".accordion" href="#collapse-curriculum-One">
+                                <strong>IFIFB-1: </strong> Informaatika.
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse-curriculum-One" class="panel-collapse collapse ">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5><strong>Kirjeldus: </strong></h5>
+                                        <p>Vestibulum facilisis facilisis sodales. Mauris ac bibendum tellus. Pellentesque aliquet molestie metus, a pharetra sem. Proin sed massa ligula. In ut purus at ipsum fringilla dapibus eget at erat. Maecenas mollis egestas blandit. Cras eget lorem at lorem sollicitudin porta et in erat. Nulla eu suscipit ante, eu convallis eros. Sed blandit sit amet massa a venenatis. Curabitur condimentum quam sit amet enim mollis imperdiet.</p>
+                                </div>
+                                <div class="col-md-12">
+                                </div>
+								<div class="col-md-6">
+                                    <a href="#" class="curriculum-description-popup-submit btn btn-success" data-course="">Vaata</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="curriculum-popup-submit btn btn-success" data-course="">Lisa</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>	
+				<div class="panel panel-default">
+					 <div class="panel-heading drag-listener">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent=".accordion" href="#collapse-curriculum-Two">
+                                <strong>IFIFB-2: </strong> Informaatika.
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse-curriculum-Two" class="panel-collapse collapse ">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5><strong>Kirjeldus: </strong></h5>
+                                        <p>Vestibulum facilisis facilisis sodales. Mauris ac bibendum tellus. Pellentesque aliquet molestie metus, a pharetra sem. Proin sed massa ligula. In ut purus at ipsum fringilla dapibus eget at erat. Maecenas mollis egestas blandit. Cras eget lorem at lorem sollicitudin porta et in erat. Nulla eu suscipit ante, eu convallis eros. Sed blandit sit amet massa a venenatis. Curabitur condimentum quam sit amet enim mollis imperdiet.</p>
+                                </div>
+                                <div class="col-md-12">
+                                </div>
+								<div class="col-md-6">
+                                    <a href="#" class="curriculum-description-popup-submit btn btn-success" data-course="">Vaata</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="lecture-popup-submit btn btn-success" data-course="">Lisa</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="panel panel-default">
+					 <div class="panel-heading drag-listener">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent=".accordion" href="#collapse-curriculum-Three">
+                                <strong>IFIFB-3: </strong>Informaatika.
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse-curriculum-Three" class="panel-collapse collapse ">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5><strong>Kirjeldus: </strong></h5>
+                                        <p>Vestibulum facilisis facilisis sodales. Mauris ac bibendum tellus. Pellentesque aliquet molestie metus, a pharetra sem. Proin sed massa ligula. In ut purus at ipsum fringilla dapibus eget at erat. Maecenas mollis egestas blandit. Cras eget lorem at lorem sollicitudin porta et in erat. Nulla eu suscipit ante, eu convallis eros. Sed blandit sit amet massa a venenatis. Curabitur condimentum quam sit amet enim mollis imperdiet.</p>
+                                </div>
+                                <div class="col-md-12">
+                                </div>
+								<div class="col-md-6">
+                                    <a href="#" class="curriculum-description-popup-submit btn btn-success" data-course="">Vaata</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="lecture-popup-submit btn btn-success" data-course="">Lisa</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--LÕPP: Siin on siis kavade listilõpp-->
+<!--ALGUS: Õppekava pikkem kirjeldus-->
+<div class="curriculum-description-popup hidden panel panel-primary" data-time="">
+    <div class="panel-heading drag-listener">
+        <h3 class="panel-title">Kirjeldus<button type="button" class="curriculum-description-popup-close panel" style="float:right;" data-dismiss="modal" aria-hidden="true">&times;</button></h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+        <div class="col-md-12">
+		<h4>Kirjeldus</h4>		
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+		ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+		reprehenderit in voluptate velit esse cillum dolore eu fugiat
+		nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+		sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+		ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+		reprehenderit in voluptate velit esse cillum dolore eu fugiat
+		nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+		sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+		ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+		reprehenderit in voluptate velit esse cillum dolore eu fugiat
+		nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+		sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+		ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+		reprehenderit in voluptate velit esse cillum dolore eu fugiat
+		nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+		sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+		ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+		reprehenderit in voluptate velit esse cillum dolore eu fugiat
+		nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+		sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+		ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+		reprehenderit in voluptate velit esse cillum dolore eu fugiat
+		nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+		sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+		ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+		reprehenderit in voluptate velit esse cillum dolore eu fugiat
+		nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+		sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+		ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+		reprehenderit in voluptate velit esse cillum dolore eu fugiat
+		nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+		sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		</div>
+	</div>
+	</div>
+</div>
+<!--LÕPP: Õppekava pikkem kirjeldus-->
+<!--ALGUS: õppeained-->
+<div class="classes-popup hidden panel panel-primary" data-time="">
+    <div class="panel-heading drag-listener">
+        <h3 class="panel-title">Loengud - informaatika <button type="button" class="classes-popup-close panel" style="float:right;" data-dismiss="modal" aria-hidden="true">&times;</button></h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="panel-group accordion" id="">
+                <div class="panel panel-default">
+                    <div class="panel-heading drag-listener">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent=".accordion" href="#collapse-classes-One">
+                                Rakenduste programmeerimine
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse-classes-One" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5><strong>Toimumisaeg: </strong>Teisipäev 08.15 - 12.45</h5>
+                                        <p></p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h5><strong>Kirjeldus: </strong></h5>
+                                        <p>Vestibulum facilisis facilisis sodales. Mauris ac bibendum tellus. Pellentesque aliquet molestie metus, a pharetra sem. Proin sed massa ligula. In ut purus at ipsum fringilla dapibus eget at erat. Maecenas mollis egestas blandit. Cras eget lorem at lorem sollicitudin porta et in erat. Nulla eu suscipit ante, eu convallis eros. Sed blandit sit amet massa a venenatis. Curabitur condimentum quam sit amet enim mollis imperdiet.</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h5><strong>Õppejõud: </strong>Jaagup Kippar</h5>
+                                        <p></p>
+                                </div>
+								<div class="col-md-6">
+                                    <a href="#" class="curriculum-description-popup-submit btn btn-success" data-course="">Vaata</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="lecture-popup-submit btn btn-success" data-course="Robootika">Lisa</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent=".accordion" href="#collapse-classes-Two">
+                                .NET raamistik
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse-classes-Two" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5><strong>Toimumisaeg: </strong>Kolmapäev 10.15 - 13.45</h5>
+                                    <p></p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h5><strong>Kirjeldus: </strong></h5>
+                                    <p>Vestibulum facilisis facilisis sodales. Mauris ac bibendum tellus. Pellentesque aliquet molestie metus, a pharetra sem. Proin sed massa ligula. In ut purus at ipsum fringilla dapibus eget at erat. Maecenas mollis egestas blandit. Cras eget lorem at lorem sollicitudin porta et in erat. Nulla eu suscipit ante, eu convallis eros. Sed blandit sit amet massa a venenatis. Curabitur condimentum quam sit amet enim mollis imperdiet.</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h5><strong>Õppejõud: </strong>Jaagup Kippar</h5>
+                                    <p></p>
+                                </div>
+								<div class="col-md-6">
+                                    <a href="#" class="curriculum-description-popup-submit btn btn-success" data-course="">Vaata</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="lecture-popup-submit btn btn-success" data-course="Robootika">Lisa</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent=".accordion" href="#collapse-classes-Three">
+                                Robootika
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse-classes-Three" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5><strong>Toimumisaeg: </strong>Esmaspäev 16.15 - 19.00</h5>
+                                        <p></p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h5><strong>Kirjeldus: </strong></h5>
+                                        <p>Vestibulum facilisis facilisis sodales. Mauris ac bibendum tellus. Pellentesque aliquet molestie metus, a pharetra sem. Proin sed massa ligula. In ut purus at ipsum fringilla dapibus eget at erat. Maecenas mollis egestas blandit. Cras eget lorem at lorem sollicitudin porta et in erat. Nulla eu suscipit ante, eu convallis eros. Sed blandit sit amet massa a venenatis. Curabitur condimentum quam sit amet enim mollis imperdiet.</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h5><strong>Õppejõud: </strong>Jaagup Kippar</h5>
+                                        <p></p>
+                                </div>
+								<div class="col-md-6">
+                                    <a href="#" class="curriculum-description-popup-submit btn btn-success" data-course="">Vaata</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="lecture-popup-submit btn btn-success" data-course="Robootika">Lisa</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--LÕPP: õppeained-->
+<!--ALGUS: Siin on siis õppejou list-->    
+<div class="teacher-popup hidden panel panel-primary" data-time="">
 
+    <div class="panel-heading drag-listener">
+        <h3 class="panel-title">Õppejõud - informaatika <button type="button" class="teacher-popup-close panel" style="float:right;" data-dismiss="modal" aria-hidden="true">&times;</button></h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading drag-listener">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-teacher-One">
+                                Andrus Rinde
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse-teacher-One" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h5><strong>IFI6022: </strong>Digitaalne Meedia.</h5>
+                                        
+                                </div>
+								<div class="col-md-4">
+                                    <a href="#" class="curriculum-description-popup-submit btn btn-success" data-course="">Vaata</a> <a href="#collapseOneOne" class="lecture-popup-submit btn btn-success" data-course="">Lisa</a></h5>
+                                </div>
+                            </div>
+							 <div class="row">
+                                <div class="col-md-8">
+                                    <h5><strong>IFI6056: </strong>Veebilehtede loomine.</h5>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="#" class="curriculum-description-popup-submit btn btn-success" data-course="">Vaata</a> <a href="#" class="lecture-popup-submit btn btn-success" data-course="">Lisa</a></h5>                                      
+                                </div>
+                            </div>
+							 <div class="row">
+                                <div class="col-md-8">
+                                    <h5><strong>IFI6075: </strong>Multimeedium.</h5>
+                                </div>
+								<div class="col-md-4">
+                                    <a href="#" class="curriculum-description-popup-submit btn btn-success" data-course="">Vaata</a> <a href="#" class="lecture-popup-submit btn btn-success" data-course="">Lisa</a></h5>                                      
+                                </div>
+                            </div>							
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-teacher-Two">
+                                Inga Petuhhov
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse-teacher-Two" class="panel-collapse collapse">
+                        <div class="panel-body">
+							 <div class="row">
+                                <div class="col-md-8">
+                                    <h5><strong>IFI6009: </strong>Programmeerimis alused.</h5>
+                                </div>
+								<div class="col-md-4">
+                                    <a href="#" class="curriculum-description-popup-submit btn btn-success" data-course="">Vaata</a> <a href="#" class="lecture-popup-submit btn btn-success" data-course="">Lisa</a></h5>                                      
+                                </div>
+                            </div>
+							 <div class="row">
+                                <div class="col-md-8">
+                                    <h5><strong>IFI6074: </strong>Tarkvaratehnika.</h5>
+                                </div>
+								<div class="col-md-4">
+                                    <a href="#" class="curriculum-description-popup-submit btn btn-success" data-course="">Vaata</a> <a href="#" class="lecture-popup-submit btn btn-success" data-course="">Lisa</a></h5>                                      
+                                </div>
+                            </div>
+							 <div class="row">
+                                <div class="col-md-8">
+                                    <h5><strong>IFI6086: </strong>Algoritmid ja andmestruktuurid.</h5>
+                                </div>
+								<div class="col-md-4">
+                                    <a href="#" class="curriculum-description-popup-submit btn btn-success" data-course="">Vaata</a> <a href="#" class="lecture-popup-submit btn btn-success" data-course="">Lisa</a></h5>                                      
+                                </div>
+                            </div>							
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-teacher-Three">
+                                Jaagup Kippar
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse-teacher-Three" class="panel-collapse collapse">
+                        <div class="panel-body">
+							<div class="row">
+                                <div class="col-md-8">
+                                    <h5><strong>IFI6059: </strong>Rakenduste Programmeerimine.</h5>
+                                </div>
+								<div class="col-md-4">
+                                    <a href="#" class="curriculum-description-popup-submit btn btn-success" data-course="">Vaata</a> <a href="#" class="lecture-popup-submit btn btn-success" data-course="">Lisa</a></h5>                                      
+                                </div>
+                            </div>
+							<div class="row">
+                                <div class="col-md-8">
+                                    <h5><strong>IFI6060: </strong>.NET raamistik.</h5>
+                                </div>
+								<div class="col-md-4">
+                                    <a href="#" class="curriculum-description-popup-submit btn btn-success" data-course="">Vaata</a> <a href="#" class="lecture-popup-submit btn btn-success" data-course="">Lisa</a></h5>                                      
+                                </div>
+                            </div>
+							<div class="row">
+                                <div class="col-md-8">
+                                    <h5><strong>IFI6097: </strong>Robootika.</h5>
+                                </div>
+								<div class=" col-md-4">
+                                    <a href="#" class="curriculum-description-popup-submit btn btn-success" data-course="">Vaata</a> <a href="#" class="lecture-popup-submit btn btn-success" data-course="">Lisa</a></h5>                                      
+                                </div>
+                            </div>								
+                        </div>
+                    </div>
+
+                </div>
+				<div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-teacher-Four">
+                                Lili Kesa
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse-teacher-Four" class="panel-collapse collapse">
+                        <div class="panel-body">
+							<div class="row">
+                                <div class="col-md-8">
+                                    <h5><strong>IFI6094: </strong>Kasutajakeskse disaini meetodid.</h5>
+                                </div>
+								<div class=" col-md-4">
+                                    <a href="#" class="curriculum-description-popup-submit btn btn-success" data-course="">Vaata</a> <a href="#" class="lecture-popup-submit btn btn-success" data-course="">Lisa</a></h5>                                      
+                                </div>
+                            </div>	
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--LÕPP: Siin on siis Õppejou listi lõpp-->
 </body>
 </html>
